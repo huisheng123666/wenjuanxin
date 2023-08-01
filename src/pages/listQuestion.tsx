@@ -1,18 +1,18 @@
-import { FC, Key, useState } from 'react'
+import { FC, useState } from 'react'
 import styles from '../assets/list.module.scss'
-import { QuestionCard } from '../components/questionCard'
+import { Question, QuestionCard } from '../components/questionCard'
 
 export const ListQuestion: FC = () => {
-  const [list, setList] = useState(() => {
+  const [list, setList] = useState<Question[]>(() => {
     const list = []
     for (let i = 1; i < 10; i++) {
-      list.push({
-        id: i,
+      list.push({ 
+        _id: i.toString(),
         title: '问卷标题' + i,
         isPublished: false,
         isStar: false,
         answerCount: 10,
-        createAt: '2021-07-0' + i,
+        createdAt: '2021-07-0' + i,
       })
     }
     return list
@@ -29,7 +29,7 @@ export const ListQuestion: FC = () => {
 
       <div className={styles.content}>
         {list.map(item => (
-          <QuestionCard key={item.id} />
+          <QuestionCard key={item._id} {...item} />
         ))}
       </div>
       <div className={styles.footer}>footer</div>
