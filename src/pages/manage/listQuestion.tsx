@@ -1,15 +1,18 @@
 import { FC, useState } from 'react'
-import styles from '../assets/list.module.scss'
-import { Question, QuestionCard } from '../components/questionCard'
+import styles from '../../assets/list.module.scss'
+import { Question, QuestionCard } from '../../components/questionCard'
+import { useTitle } from 'ahooks'
 
 export const ListQuestion: FC = () => {
-  const [list, setList] = useState<Question[]>(() => {
+  useTitle('X问卷 - 我的问卷')
+
+  const [list] = useState<Question[]>(() => {
     const list = []
     for (let i = 1; i < 10; i++) {
-      list.push({ 
+      list.push({
         _id: i.toString(),
         title: '问卷标题' + i,
-        isPublished: false,
+        isPublished: i % 2 === 0,
         isStar: false,
         answerCount: 10,
         createdAt: '2021-07-0' + i,
@@ -32,7 +35,7 @@ export const ListQuestion: FC = () => {
           <QuestionCard key={item._id} {...item} />
         ))}
       </div>
-      <div className={styles.footer}>footer</div>
+      <div className={styles.footer}>list footer</div>
     </>
   )
 }

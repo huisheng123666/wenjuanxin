@@ -1,15 +1,8 @@
-import './App.css'
-import { useTitle } from 'ahooks'
-import { ListQuestion } from './pages/listQuestion'
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
 
 function App() {
-  useTitle('app Page')
-
-  return (
-    <>
-      <ListQuestion />
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
