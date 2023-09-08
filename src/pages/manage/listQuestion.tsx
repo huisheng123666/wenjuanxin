@@ -2,6 +2,9 @@ import { FC, useState } from 'react'
 import styles from '../../assets/list.module.scss'
 import { Question, QuestionCard } from '../../components/questionCard'
 import { useTitle } from 'ahooks'
+import { Typography } from 'antd'
+
+const { Title } = Typography
 
 export const ListQuestion: FC = () => {
   useTitle('X问卷 - 我的问卷')
@@ -13,7 +16,7 @@ export const ListQuestion: FC = () => {
         _id: i.toString(),
         title: '问卷标题' + i,
         isPublished: i % 2 === 0,
-        isStar: false,
+        isStar: i % 2 === 0,
         answerCount: 10,
         createdAt: '2021-07-0' + i,
       })
@@ -25,7 +28,7 @@ export const ListQuestion: FC = () => {
     <>
       <div className={styles.header}>
         <div className={styles.left}>
-          <h3>我的问卷</h3>
+          <Title level={3}>我的问卷</Title>
         </div>
         <div className={styles.right}>搜索</div>
       </div>
@@ -35,7 +38,7 @@ export const ListQuestion: FC = () => {
           <QuestionCard key={item._id} {...item} />
         ))}
       </div>
-      <div className={styles.footer}>list footer</div>
+      <div className={styles.footer}>上滑加载更多...</div>
     </>
   )
 }

@@ -1,5 +1,6 @@
 .header {
  display: flex; 
+ padding: 10px;
  .left {
   flex: 1;
  }
@@ -15,5 +16,5 @@
 }
 
 .footer {
-  text-align: right;
+  text-align: center;
 }
