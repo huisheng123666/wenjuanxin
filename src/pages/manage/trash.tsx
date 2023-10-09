@@ -3,6 +3,7 @@ import { Question } from '../../components/questionCard'
 import { Typography, Table, Button, Space, Modal } from 'antd'
 import styles from '../../assets/list.module.scss'
 import type { ColumnsType } from 'antd/es/table'
+import ListSearch from '../../components/listSearch'
 
 const { Title } = Typography
 
@@ -64,7 +65,9 @@ const Trash: FC = () => {
         <div className={styles.left}>
           <Title level={3}>回收站</Title>
         </div>
-        <div className={styles.right}>搜索 ({selectedIds.join(',')})</div>
+        <div className={styles.right}>
+          <ListSearch />
+        </div>
       </div>
 
       <div className={styles.content}>

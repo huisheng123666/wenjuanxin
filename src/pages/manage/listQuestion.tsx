@@ -3,6 +3,7 @@ import styles from '../../assets/list.module.scss'
 import { Question, QuestionCard } from '../../components/questionCard'
 import { useTitle } from 'ahooks'
 import { Typography } from 'antd'
+import ListSearch from '../../components/listSearch'
 
 const { Title } = Typography
 
@@ -30,7 +31,9 @@ export const ListQuestion: FC = () => {
         <div className={styles.left}>
           <Title level={3}>我的问卷</Title>
         </div>
-        <div className={styles.right}>搜索</div>
+        <div className={styles.right}>
+          <ListSearch />
+        </div>
       </div>
 
       <div className={styles.content}>
